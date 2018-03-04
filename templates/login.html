@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Rabbit : Home</title>
+    <link rel="icon" type="image/icon" href="static/images/tabicon.ico">
+    <link rel="stylesheet" type="text/css" href="static/css/pure-min.css">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700" rel="stylesheet">
+    <link href="static/css/main.css" rel="stylesheet">
+    <link rel="icon" href="static/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+</head>
+
+<body>                                                <!-- index ends here -->
+
+<div id="about_scroll" class="pages ">                      <!-- about strats here  -->
+    <div class="container main">
+        <div class="row">
+            <div class="col-md-5 left" id="about_left">
+                <img class="img-responsive img-rabbit" src="static/images/about.jpg">
+            </div>
+
+            <div class="col-md-7 right" id="about_right">
+                <a href="/" class="btn btn-rabbit back"> <i class="fa fa-angle-left" aria-hidden="true"></i> Back to home </a>
+                <div id="watermark">
+                    <h2 class="page-title" text-center>Login</h2>
+                    <div class="marker">L</div>
+                </div>
+                <div class="login">
+                    <form action='/user/login' method="post">
+                        Name:<input type="text" placeholder="username" name="username"><br>
+                        Pwd:&nbsp;<input type="password" placeholder="password" name="password"><br>
+                        <input type="submit" value="Login" class='submit' >
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="static/js/jquery-3.1.0.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+</body>
+</html>

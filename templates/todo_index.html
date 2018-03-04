@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Rabbit : Home</title>
+    <link rel="icon" type="image/icon" href="../static/images/tabicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/pure-min.css">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700" rel="stylesheet">
+    <link href="../static/css/main.css" rel="stylesheet">
+    <link rel="icon" href="../static/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+</head>
+
+<body>
+
+<div id="contact_scroll" class="pages">                             <!-- Contact starts here -->
+    <div class="container main">
+        <div class="row">
+            <div class="col-md-6 left" id="contact_left">
+                <img class="img-responsive img-rabbit" src="../static/images/contact.jpg">
+            </div>
+
+            <div class="col-md-6 right" id="contact_right">
+                <a href="/" class="btn btn-rabbit back"> <i class="fa fa-angle-left" aria-hidden="true"></i> Back to Home </a>
+                <div id="watermark">
+                    <h2 class="page-title" text-center>Todo</h2>
+                    <div class="marker">T</div>
+                </div>
+                <div class='todo_header'>
+                    <form action="/todo/add" method="post">
+                        <input type="text" placeholder="Add Todo" name="task" >
+                        <input type="submit" value="Add" class='todo_add submit'>
+                    </form>
+                </div>
+                <!-- form -->
+                <table class="todo-table pure-table pure-table-horizontal pure-table-striped">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for t in todos %}
+                    {% if t.completed %}
+                    {% set rowClass = "completed" %}
+                    {% else %}
+                    {% set rowClass = "" %}
+                    {% endif %}
+                    <tr class="{{ rowClass }}">
+                        <td>{{ t.task }}</td>
+                        <td>{{ t.completed }}</td>
+                        <td>
+                            <a href="/todo/edit/{{ t.id }}">edit</a>
+                            <a href="/todo/delete/{{ t.id }}">delete</a>
+                            <a href="/todo/complete/{{ t.id }}">complete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>                                                              <!-- Contact ends here -->
+<script src="../static/js/jquery-3.1.0.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<!--<a href="/weibo/new">写新微博</a>
+
+{% for w in weibos %}
+<p>
+    {{ w.content }} from {{ w.user().username }}  &nbsp; 发布时间： {{ w.createTime}}
+    <a href="/weibo/delete?id={{ w.id }}">删除</a>
+    <a href="/weibo/edit?id={{ w.id }}">修改</a>
+    {% for c in w.comments() %}
+    <div class="comment">
+        {{ c.user().username }} : {{ c.content }} &nbsp; 评论时间: {{ c.createTime}}
+    <a href="/comment/edit?id={{ c.id }}">修改</a>
+    <a href="/comment/delete?id={{ c.id }}">删除</a>
+    </div>
+    {% endfor %}
+    <form action="/comment/add" method="post">
+        <input type="hidden" name="weiboId" value="{{ w.id }}">
+        <input name="content">
+        <br>
+        <button type="submit">添加评论</button>
+    </form>
+</p>
+{% endfor %} -->
+   <!-- <h1>TODO</h1>
+    <form action="/todo/add" method="post">
+        <input type="text" name="task" placeholder="请输入todo">
+        <br>
+        <button type="submit">添加</button>
+    </form>
+    {% for t in todos %}
+    <div>
+        {{ t.task }}
+        <a href="/todo/edit?id={{ t.id }}">编辑</a>
+        <a href="/todo/delete?id={{ t.id }}">删除</a>
+    </div>
+    {% endfor %}
+</body>
+</html>
